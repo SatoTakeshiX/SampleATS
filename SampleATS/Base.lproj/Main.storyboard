@@ -1,25 +1,129 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ee5-bh-ngv">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Safari View Controller-->
+        <scene sceneID="Kg1-ok-9sz">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="safariServices" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bbR-W3-cFC" customClass="SafariViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="Gpk-or-Mve"/>
+                        <viewControllerLayoutGuide type="bottom" id="VEC-b8-FoG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="c1y-CO-RMa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7do-my-34k">
+                                <rect key="frame" x="217" y="155" width="166" height="30"/>
+                                <state key="normal" title="SafariServiceを呼び出す"/>
+                                <connections>
+                                    <action selector="displaySafari:" destination="bbR-W3-cFC" eventType="touchUpInside" id="IkS-xP-uGh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-io-V5N">
+                                <rect key="frame" x="231" y="215" width="139" height="30"/>
+                                <state key="normal" title="WebViewを呼び出す"/>
+                                <connections>
+                                    <segue destination="JLf-5s-Ta6" kind="show" id="NBd-vR-Q6g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJs-gc-Dv6">
+                                <rect key="frame" x="219" y="277" width="163" height="30"/>
+                                <state key="normal" title="WKWebViewを呼び出す"/>
+                                <connections>
+                                    <segue destination="Dsl-ST-623" kind="show" id="uYO-j5-3RS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tfX-io-V5N" firstAttribute="centerX" secondItem="c1y-CO-RMa" secondAttribute="centerX" id="31R-O2-fZW"/>
+                            <constraint firstItem="cJs-gc-Dv6" firstAttribute="centerX" secondItem="c1y-CO-RMa" secondAttribute="centerX" id="bvZ-kU-nEc"/>
+                            <constraint firstItem="cJs-gc-Dv6" firstAttribute="top" secondItem="tfX-io-V5N" secondAttribute="bottom" constant="32" id="cPg-1i-X3Y"/>
+                            <constraint firstItem="7do-my-34k" firstAttribute="centerY" secondItem="c1y-CO-RMa" secondAttribute="centerY" constant="-130" id="jtT-Wp-GSW"/>
+                            <constraint firstItem="tfX-io-V5N" firstAttribute="top" secondItem="7do-my-34k" secondAttribute="bottom" constant="30" id="k2R-sf-7dw"/>
+                            <constraint firstItem="7do-my-34k" firstAttribute="centerX" secondItem="c1y-CO-RMa" secondAttribute="centerX" id="xHa-5X-bbc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gEF-7K-5VH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G05-kx-xth" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1182" y="1072"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="vcS-F2-ruX">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="JLf-5s-Ta6" customClass="WebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vss-WW-MNq"/>
+                        <viewControllerLayoutGuide type="bottom" id="U7g-gj-A9i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BFg-4e-eO5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4x9-VB-KFB">
+                                <rect key="frame" x="20" y="0.0" width="560" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U7g-gj-A9i" firstAttribute="top" secondItem="4x9-VB-KFB" secondAttribute="bottom" id="DvZ-bh-SWP"/>
+                            <constraint firstAttribute="trailing" secondItem="4x9-VB-KFB" secondAttribute="trailing" constant="20" id="QaG-ud-noA"/>
+                            <constraint firstItem="4x9-VB-KFB" firstAttribute="leading" secondItem="BFg-4e-eO5" secondAttribute="leading" constant="20" id="ddz-hw-ucD"/>
+                            <constraint firstItem="4x9-VB-KFB" firstAttribute="top" secondItem="BFg-4e-eO5" secondAttribute="topMargin" id="pyV-tj-zwt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="myWebView" destination="4x9-VB-KFB" id="XSf-7U-8Tp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8mF-82-lFG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1819" y="1072"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="vi5-0D-yur">
+            <objects>
+                <viewController id="Dsl-ST-623" customClass="WKWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cmr-Cd-KJf"/>
+                        <viewControllerLayoutGuide type="bottom" id="3au-DF-zgg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hgk-In-T9n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v5Y-GP-iUY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1819" y="1790"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4w8-qi-bFK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ee5-bh-ngv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H7c-U7-ZsX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bbR-W3-cFC" kind="relationship" relationship="rootViewController" id="0yo-gE-QOZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFo-pU-ZLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="1072"/>
         </scene>
     </scenes>
 </document>
